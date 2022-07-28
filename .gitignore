@@ -35,6 +35,13 @@
 *.i*86
 *.x86_64
 *.hex
+gmiff
+
+# GameMaker specific
+*.win
+*.ios
+*.unx
+*.droid
 
 # Debug files
 *.dSYM/
