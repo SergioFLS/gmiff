@@ -114,6 +114,12 @@ int main()
 	fread(&chunkGenInfo.formatID, sizeof(uint8_t), 1, iff);
 	chunkGenInfo.unknown = ereadUint16(iff, be);
 	chunkGenInfo.filenamePointer = ereadUint32(iff, be);
+	chunkGenInfo.configPointer = ereadUint32(iff, be);
+	chunkGenInfo.lastObjectID = ereadUint32(iff, be);
+	chunkGenInfo.lastTileID = ereadUint32(iff, be);
+	chunkGenInfo.gameID = ereadUint32(iff, be);
+	fread(&chunkGenInfo.guid, sizeof(uint8_t), 16, iff);
+	chunkGenInfo.namePointer = ereadUint32(iff, be);
 	chunkGenInfo.major = ereadUint32(iff, be);
 	chunkGenInfo.minor = ereadUint32(iff, be);
 	chunkGenInfo.release = ereadUint32(iff, be);
