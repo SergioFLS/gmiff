@@ -5,6 +5,10 @@
 #define ID_GEN8 0x384e4547
 #define ID_OPTN 0x4e54504f
 
+
+// https://github.com/colinator27/DogScepter/blob/master/DogScepterLib/Core/Chunks/GMChunkGEN8.cs
+// // https://github.com/krzys-h/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleGeneralInfo.cs
+
 struct ChunkGEN8
 {
 	uint8_t disableDebug;

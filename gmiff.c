@@ -62,7 +62,7 @@ int main()
 {
 	printf("%d\n", sizeof(struct ChunkGEN8));
 	bool be = false;
-	FILE *iff = fopen("escape.win", "rb");
+	FILE *iff = fopen("pool.win", "rb");
 	if(iff == NULL)
 	{
 		printf("failed to read file!");
