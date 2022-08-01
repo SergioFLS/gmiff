@@ -36,4 +36,6 @@ struct ChunkGEN8
 	uint64_t functionClassifications;
 	uint32_t steamAppID;
 };
+
+void readChunkGEN8(struct ChunkGEN8* chunkGEN8, FILE* data, bool be);
 #endif
