@@ -7,7 +7,8 @@
 
 
 // https://github.com/colinator27/DogScepter/blob/master/DogScepterLib/Core/Chunks/GMChunkGEN8.cs
-// // https://github.com/krzys-h/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleGeneralInfo.cs
+// https://github.com/krzys-h/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleGeneralInfo.cs
+// thanks for documenting the format <3
 
 struct ChunkGEN8
 {
