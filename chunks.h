@@ -4,7 +4,12 @@
 #define ID_FORM 0x4d524f46
 #define ID_GEN8 0x384e4547
 #define ID_OPTN 0x4e54504f
+#define ID_ROOM 0x4d4f4f52
+#define ID_TXTR 0x52545854
 
+// texture-specific
+#define TEXTURE_HEADER_QOZ2 0x716f7a32
+#define TEXTURE_HEADER_QOIF 0x716f6966
 
 // https://github.com/colinator27/DogScepter/blob/master/DogScepterLib/Core/Chunks/GMChunkGEN8.cs
 // https://github.com/krzys-h/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleGeneralInfo.cs
@@ -36,6 +41,22 @@ struct ChunkGEN8
 	int64_t activeTargets;
 	uint64_t functionClassifications;
 	uint32_t steamAppID;
+};
+
+struct ChunkROOM
+{
+	uint32_t namePointer;
+	uint32_t captionPointer;
+	uint32_t width;
+	uint32_t height;
+	uint32_t speed;
+	uint8_t persistent;
+	uint32_t backgroundColor;
+	uint8_t showBackgroundColor;
+	uint32_t creationCodeID;
+	uint32_t flags;
+	uint32_t backgroundsPointer;
+	// TODO complete ROOM chunk
 };
 
 void readChunkGEN8(struct ChunkGEN8* chunkGEN8, FILE* data, bool be);
