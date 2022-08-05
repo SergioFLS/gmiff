@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include <bzlib.h>
+
 #include "file_helper.h"
 #include "chunks.h"
 
@@ -80,6 +82,18 @@ int main()
 	printf("%d\t%ld\n", ereadUint32(iff, be) == TEXTURE_HEADER_QOZ2, ftell(iff));
 	printf("%d\t%d\n", ereadUint16(iff, be), ereadUint16(iff, be));
 	printf("%d\n", ereadUint32(iff, be));
+
+	int bz_error = 5;
+	BZFILE* qoz2 = BZ2_bzReadOpen(&bz_error, iff, 4, false, NULL, 0);
+	if(bz_error != BZ_OK)
+	{
+		printf("error opening bz2 image! bz2lib gave code %d\n", bz_error);
+		return 1;
+	}
+
+	char texture_header[5] = {0, 0, 0, 0, 0};
+	BZ2_bzRead(&bz_error, qoz2, texture_header, 4);
+	printf("%s\n", texture_header);
 	/*
 	// code for ROOM
 	uint32_t roomCount = ereadUint32(iff, be);

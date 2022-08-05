@@ -10,7 +10,7 @@ OUT=gmiff
 all: build
 
 build: $(BZ2_O) $(GMIFF_O)
-	$(CC) $(FLAGS) -o $(OUT) $(BZ2_O) $(GMIFF_O)
+	$(CC) $(FLAGS) -I$(BZ2_LIB) -o $(OUT) $(BZ2_O) $(GMIFF_O)
 
 $(GMIFF_O): chunks.c file_helper.c gmiff.c
 	$(CC) $(FLAGS) -c chunks.c file_helper.c gmiff.c
