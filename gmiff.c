@@ -60,6 +60,11 @@ int main()
 	printf("%d\n", textureCount);
 
 	uint32_t* texturePointers = (uint32_t*)malloc(textureCount * sizeof(uint32_t));
+	if(texturePointers == NULL)
+	{
+		printf("error on allocating texturePointers, aborting...\n");
+		return 1;
+	}
 
 	for(int i=0; i<textureCount; i++)
 	{
@@ -73,6 +78,8 @@ int main()
 	ereadUint32(iff, be);
 	fseek(iff, ereadUint32(iff, be), SEEK_SET);
 	printf("%d\t%ld\n", ereadUint32(iff, be) == TEXTURE_HEADER_QOZ2, ftell(iff));
+	printf("%d\t%d\n", ereadUint16(iff, be), ereadUint16(iff, be));
+	printf("%d\n", ereadUint32(iff, be));
 	/*
 	// code for ROOM
 	uint32_t roomCount = ereadUint32(iff, be);

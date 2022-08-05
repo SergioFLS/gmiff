@@ -8,8 +8,8 @@
 #define ID_TXTR 0x52545854
 
 // texture-specific
-#define TEXTURE_HEADER_QOZ2 0x716f7a32
-#define TEXTURE_HEADER_QOIF 0x716f6966
+#define TEXTURE_HEADER_QOZ2 0x716f7a32 /* bzip2-compressed GMQOI */
+#define TEXTURE_HEADER_QOIF 0x716f6966 /* uncompressed GMQOI */
 
 // https://github.com/colinator27/DogScepter/blob/master/DogScepterLib/Core/Chunks/GMChunkGEN8.cs
 // https://github.com/krzys-h/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleGeneralInfo.cs
