@@ -1,0 +1,3 @@
+[submodule "third-party/bzip2"]
+	path = third-party/bzip2
+	url = https://github.com/SergioFLS/bzip2
