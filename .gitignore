@@ -42,6 +42,8 @@ gmiff
 *.ios
 *.unx
 *.droid
+*.yydebug
+*.gmqoi # no official extension name that i know, i made "gmqoi" up
 
 # Debug files
 *.dSYM/

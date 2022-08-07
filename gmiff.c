@@ -79,9 +79,13 @@ int main()
 	ereadUint32(iff, be);
 	ereadUint32(iff, be);
 	fseek(iff, ereadUint32(iff, be), SEEK_SET);
-	printf("%d\t%ld\n", ereadUint32(iff, be) == TEXTURE_HEADER_QOZ2, ftell(iff));
+	if(ereadUint32(iff, be) != TEXTURE_HEADER_QOZ2)
+	{
+		printf("expected qoz2 in image file!\n");
+		return 1;
+	}
 	printf("%d\t%d\n", ereadUint16(iff, be), ereadUint16(iff, be));
-	printf("%d\n", ereadUint32(iff, be));
+	int qoz2_decompressed_length = ereadUint32(iff, be);
 
 	int bz_error = 5;
 	BZFILE* qoz2 = BZ2_bzReadOpen(&bz_error, iff, 4, false, NULL, 0);
@@ -91,9 +95,19 @@ int main()
 		return 1;
 	}
 
-	char texture_header[5] = {0, 0, 0, 0, 0};
-	BZ2_bzRead(&bz_error, qoz2, texture_header, 4);
-	printf("%s\n", texture_header);
+	FILE* outqoi = fopen("out.gmqoi", "wb");
+	if(outqoi == NULL)
+	{
+		printf("failed to create out GMQOI file!\n");
+		return 1;
+	}
+
+	uint8_t bzqoi_buffer;
+	for(int i=0;i<qoz2_decompressed_length;i++)
+	{
+		BZ2_bzRead(&bz_error, qoz2, &bzqoi_buffer, sizeof(bzqoi_buffer));
+		fputc(bzqoi_buffer, outqoi);
+	}
 	/*
 	// code for ROOM
 	uint32_t roomCount = ereadUint32(iff, be);
