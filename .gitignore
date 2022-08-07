@@ -43,7 +43,7 @@ gmiff
 *.unx
 *.droid
 *.yydebug
-*.gmqoi # no official extension name that i know, i made "gmqoi" up
+*.gmqoi
 
 # Debug files
 *.dSYM/
