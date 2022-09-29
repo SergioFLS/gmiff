@@ -12,7 +12,7 @@ int main()
 {
 	printf("%d\n", sizeof(struct ChunkGEN8));
 	bool be = false;
-	FILE *iff = fopen("escape.win", "rb");
+	FILE *iff = fopen("deltarune.win", "rb");
 	if(iff == NULL)
 	{
 		printf("failed to read file!\n");
@@ -59,7 +59,7 @@ int main()
 		fseek(iff, buffer, SEEK_CUR);
 	}
 	uint32_t textureCount = ereadUint32(iff, be);
-	printf("%d\n", textureCount);
+	printf("texcount: %d\n", textureCount);
 
 	uint32_t* texturePointers = (uint32_t*)malloc(textureCount * sizeof(uint32_t));
 	if(texturePointers == NULL)
@@ -74,7 +74,7 @@ int main()
 		printf("texpointers %d\n", texturePointers[i]);
 	}
 
-	fseek(iff, texturePointers[0], SEEK_SET);
+	fseek(iff, texturePointers[1], SEEK_SET);
 	ereadUint32(iff, be);
 	ereadUint32(iff, be);
 	ereadUint32(iff, be);
