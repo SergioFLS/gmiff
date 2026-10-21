@@ -1,4 +1,11 @@
+Update from October 2026: This project has been superceded by **Butterscotch** and this project wasn't updated in 4 years, so I can say that it's dead. I plan to reboot it as a Python library for reading and manipulating GameMaker WAD files, though no promises.
+
+Check out Butterscotch, which pretty much has the same goals as this (and also made by the same guy behind Droidtale!): https://github.com/ButterscotchRunner/Butterscotch
+
+Also OMG this code is a mess. TBF I made this while I was learning C, though if it wasn't for this project I would had never discovered how awesome C is. :)
+
 # gmiff
+
 This project aims to be an FLOSS and portable clone of the GameMaker runtime, targetting Studio versions that work with a data file (on Windows, it's `data.win`).
 
 I want it to work kind of like ScummVM and EasyRPG, which replace the original runtime and allow the games run on platforms where this project can, including unsupported platforms by GameMaker (such as FreeBSD).
